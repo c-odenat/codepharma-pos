@@ -1,4 +1,4 @@
-﻿# ðŸ’Š CodePharma POS - Multi-Mode Pharmacy Management Suite
+# CodePharma POS - Multi-Mode Pharmacy Management Suite
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
@@ -11,77 +11,76 @@
 
 ---
 
-## âš¡ Deployment Modes
+## Deployment Modes
 
 CodePharma is engineered to adapt dynamically to diverse pharmacy operational requirements:
 
 | Mode | Architecture | Target Environment | Database Strategy |
 |:---|:---|:---|:---|
-| ðŸ”Œ **Standalone** | Single-device POS | Small clinics, remote dispensaries, mobile kiosks | Offline-first embedded SQLite with periodic sync |
-| ðŸ–¥ï¸ **Terminal** | LAN Client Station | Multiple counter registers pointing to a store server | High-speed REST/WebSocket client |
-| ðŸ¢ **Server / HQ** | Central Headquarters | Multi-branch pharmacy networks & franchise chains | PostgreSQL / MySQL central server with branch replication |
+| **Standalone** | Single-device POS | Small clinics, remote dispensaries, mobile kiosks | Offline-first embedded SQLite with periodic sync |
+| **Terminal** | LAN Client Station | Multiple counter registers pointing to a store server | High-speed REST/WebSocket client |
+| **Server / HQ** | Central Headquarters | Multi-branch pharmacy networks & franchise chains | PostgreSQL / MySQL central server with branch replication |
 
-*The deployment mode can be configured directly through the UI header or via the DEPLOYMENT_MODE environment variable.*
+*The deployment mode can be configured directly through the UI header or via the `DEPLOYMENT_MODE` environment variable.*
 
 ---
 
-## ðŸ—ï¸ Architecture & Monorepo Structure
+## Architecture & Monorepo Structure
 
 Built with modern npm workspaces for modularity, code sharing, and strict typing:
 
-``
+```text
 codepharma/
-â”œâ”€â”€ apps/
-â”‚   â”œâ”€â”€ api/                   # Backend REST API (Node.js, Express, JWT, Roles)
-â”‚   â”œâ”€â”€ web/                   # Frontend SPA (React, Vite, TypeScript, Tailwind)
-â”‚   â””â”€â”€ electron/              # Native desktop wrapper with frameless window styling
-â”œâ”€â”€ packages/
-â”‚   â””â”€â”€ shared/                # Shared interfaces, ISO 4217 currency catalog, roles
-â”œâ”€â”€ .github/                   # CI/CD workflows and actions
-â”œâ”€â”€ package.json               # Root monorepo workspace configuration
-â””â”€â”€ tsconfig.base.json         # Base TypeScript configuration
-``
+|-- apps/
+|   |-- api/                   # Backend REST API (Node.js, Express, JWT, Roles)
+|   |-- web/                   # Frontend SPA (React, Vite, TypeScript, Tailwind)
+|   \-- electron/              # Native desktop wrapper with frameless window styling
+|-- packages/
+|   \-- shared/                # Shared interfaces, ISO 4217 currency catalog, roles
+|-- .github/                   # CI/CD workflows and actions
+|-- package.json               # Root monorepo workspace configuration
+\-- tsconfig.base.json         # Base TypeScript configuration
+```
 
 ---
 
-## ðŸ” Role-Based Access Control (RBAC)
+## Role-Based Access Control (RBAC)
 
 CodePharma enforces granular permissions tailored to pharmacy compliance:
 
-- **ðŸ‘‘ Administrator**: Full system configuration, audit trails, user management, and tax/fiscal settings.
-- **âš•ï¸ Pharmacist**: Prescription validation, controlled substance logs, dispensing authorization, and stock intake.
-- **ðŸ’µ Cashier**: Point-of-sale checkout, customer invoice creation, split payment handling, and daily till reconciliation.
+- **Administrator**: Full system configuration, audit trails, user management, and tax/fiscal settings.
+- **Pharmacist**: Prescription validation, controlled substance logs, dispensing authorization, and stock intake.
+- **Cashier**: Point-of-sale checkout, customer invoice creation, split payment handling, and daily till reconciliation.
 
-*Default Demo Credentials:* dmin / dmin
+*Default Demo Credentials:* `admin` / `admin`
 
 ---
 
-## ðŸš€ Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) (v18.0 or higher recommended)
-- 
-pm (v9 or higher with workspaces support)
+- `npm` (v9 or higher with workspaces support)
 
 ### Installation
 
 1. **Clone the repository:**
-   `ash
+   ```bash
    git clone https://github.com/c-odenat/codepharma-pos.git
    cd codepharma-pos
-   `
+   ```
 
 2. **Install all dependencies:**
-   `ash
+   ```bash
    npm install
-   `
+   ```
 
 ### Development Execution
 
 Run individual workspaces or start full-stack services concurrently:
 
-`ash
+```bash
 # Run both Backend API and Web Frontend concurrently
 npm run dev
 
@@ -93,24 +92,24 @@ npm run dev:web
 
 # Launch Electron desktop shell (loads web app on 5173)
 npm run dev:desktop
-`
+```
 
 ### Production Build
 
-`ash
+```bash
 # Build API and Web packages for production
 npm run build
-`
+```
 
 ---
 
-## ðŸŒ Multi-Currency & Localization
+## Multi-Currency & Localization
 
-Includes built-in support for global currencies loaded dynamically from @codepharma/shared, providing real-time formatting, currency symbol positioning, and ISO 4217 validation.
+Includes built-in support for global currencies loaded dynamically from `@codepharma/shared`, providing real-time formatting, currency symbol positioning, and ISO 4217 validation.
 
 ---
 
-## ðŸ‘¤ Author
+## Author
 
 **Nathaniel Darko**
 - GitHub: [@c-odenat](https://github.com/c-odenat)
@@ -118,6 +117,6 @@ Includes built-in support for global currencies loaded dynamically from @codepha
 
 ---
 
-## ðŸ“„ License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
